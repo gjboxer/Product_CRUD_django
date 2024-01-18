@@ -12,8 +12,8 @@ def index(request):
 def product_list(request, name=None):
     if request.method == 'GET':
         data = request.GET.get('name', None)
-        if data:
-            products = Product.objects.filter(name__icontains=data)
+        if name:
+            products = Product.objects.filter(name__icontains=name)
         else:
             products = Product.objects.all()
 
